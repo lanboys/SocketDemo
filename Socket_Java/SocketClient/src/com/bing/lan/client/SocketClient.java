@@ -10,13 +10,13 @@ public class SocketClient {
 
     public static void main(String[] args) {
 
-        SocketClient socketServer = new SocketClient();
+        SocketClient socketClient = new SocketClient();
 
-        socketServer.start();
+        socketClient.start();
     }
 
     private void start() {
-        try (Socket socket = new Socket("127.0.0.1", 2048)) {
+        try (Socket socket = new Socket("127.0.0.1", 9898)) {
 
             System.out.println("client start");
             BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
@@ -27,11 +27,12 @@ public class SocketClient {
             String clientMsg;
 
             while (!"bye".equals(clientMsg = reader.readLine())) {
-                System.out.println("-------------------会话开始----------------------");
-                bufferedWriter.write("client：" + clientMsg + "\n");
+                //System.out.println("-------------------一次会话开始----------------------");
+                System.out.println("客户端发送了：" + clientMsg);
+                bufferedWriter.write(clientMsg + "\n");
                 bufferedWriter.flush();
-                System.out.println("客户端收到了服务端回复：" + bufferedReader.readLine());
-                System.out.println("-------------------会话结束----------------------");
+                System.out.println("收到了服务器回复：" + bufferedReader.readLine());
+                //System.out.println("-------------------一次会话结束----------------------");
             }
             System.out.println("client end");
         } catch (Exception e) {
