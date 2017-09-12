@@ -14,13 +14,12 @@ import android.widget.Toast;
 
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
-import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
-import static com.bing.lan.client.R.id.status;
-
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, SocketClient.ServerListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, SocketClient.SocketListener {
 
     private Button mBtnReset;
     private Button mBtnConnect;
@@ -34,16 +33,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     RecyclerView mRecyclerView;
     private MessageListAdapter mAdapter;
     private List<Message> mMessages = new ArrayList<>();
+    Button mIvHeartBeat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initView();
+    }
 
+    private void initView() {
         mBtnReset = (Button) findViewById(R.id.reset);
         mBtnConnect = (Button) findViewById(R.id.connect);
         mBtnDisconnect = (Button) findViewById(R.id.disconnect);
-        mTvStatus = (TextView) findViewById(status);
+        mTvStatus = (TextView) findViewById(R.id.status);
+        mIvHeartBeat = (Button) findViewById(R.id.iv_heart_beat);
 
         mBtnSend = (Button) findViewById(R.id.send);
         mContent = (EditText) findViewById(R.id.content);
@@ -63,7 +67,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         //https://github.com/yqritc/RecyclerView-FlexibleDivider
-        //
         mRecyclerView.addItemDecoration(
                 new HorizontalDividerItemDecoration.Builder(this)
                         .color(Color.TRANSPARENT)
@@ -81,6 +84,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mContent.setText(mMessages.get(position).getMsg());
             }
         });
+
+        mRecyclerView.setFocusable(true);
+        mRecyclerView.requestFocus();
     }
 
     @Override
@@ -91,18 +97,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mTvStatus.setText("未连接");
                 mIp.setText("192.168.2.186");
                 mPort.setText("9898");
-
                 if (mSocketClient != null) {
                     mSocketClient.stopConnect();
                     mTvStatus.setText("未连接");
                     mSocketClient = null;
                 }
-
                 mMessages.clear();
                 mAdapter.notifyDataSetChanged();
+                mIvHeartBeat.setSelected(false);
 
                 break;
             case R.id.disconnect:
+                mIvHeartBeat.setSelected(false);
                 if (mSocketClient != null) {
                     mSocketClient.stopConnect();
                     mTvStatus.setText("断开连接");
@@ -114,23 +120,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Toast.makeText(MainActivity.this, "已连接", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        mSocketClient = new SocketClient();
-                        mSocketClient.setServerListener(MainActivity.this);
-                        final String status = mSocketClient.startConnect(mIp.getText().toString().trim(),
-                                Integer.valueOf(mPort.getText().toString().trim())) ? "连接成功" : "连接失败";
-
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                mTvStatus.setText(status);
-                            }
-                        });
-                    }
-                }).start();
+                mSocketClient = new SocketClient(MainActivity.this);
+                mSocketClient.setSocketListener(MainActivity.this);
+                mSocketClient.startConnect(mIp.getText().toString().trim(),
+                        Integer.valueOf(mPort.getText().toString().trim()));
 
                 break;
             case R.id.send:
@@ -143,48 +136,51 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Toast.makeText(MainActivity.this, "请输入内容", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            mSocketClient.sendMsg(trim);
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    mContent.setText("");
-                                    mMessages.add(new Message(trim, Message.MESSAGE_CLIENT));
-
-                                    mAdapter.notifyDataSetChanged();
-
-                                    Toast.makeText(MainActivity.this, "发送成功", Toast.LENGTH_SHORT).show();
-                                }
-                            });
-                        } catch (IOException e) {
-                            e.printStackTrace();
-
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    Toast.makeText(MainActivity.this, "发送失败", Toast.LENGTH_SHORT).show();
-                                }
-                            });
-                        }
-                    }
-                }).start();
-
+                mSocketClient.sendMsg(trim);
                 break;
         }
     }
 
     @Override
+    public void onStartConnect(boolean isSuccess) {
+        mTvStatus.setText(isSuccess ? "连接成功" : "连接失败");
+
+        mRecyclerView.setFocusable(true);
+        mRecyclerView.requestFocus();
+    }
+
+    @Override
     public void onServerMessage(final String serverMessage) {
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                mMessages.add(new Message(serverMessage, Message.MESSAGE_SERVER));
+
+        if (serverMessage.contains("心跳包")) {
+            mIvHeartBeat.setSelected(!mIvHeartBeat.isSelected());
+            mSocketClient.sendMsg("我是客户端心跳包: " + format.format(new Date(System.currentTimeMillis())));
+        } else {
+            mMessages.add(new Message(serverMessage, Message.MESSAGE_SERVER));
+            mAdapter.notifyDataSetChanged();
+            mRecyclerView.smoothScrollToPosition(mMessages.size() - 1);
+        }
+    }
+
+    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+    @Override
+    public void onSendMessage(boolean isSuccess, String clientMessage) {
+        if (isSuccess) {
+
+            if (!clientMessage.contains("心跳包")) {
+                Toast.makeText(MainActivity.this, "发送成功", Toast.LENGTH_SHORT).show();
+                mContent.setText("");
+                mMessages.add(new Message(clientMessage + " :我", Message.MESSAGE_CLIENT));
                 mAdapter.notifyDataSetChanged();
             }
-        });
+        } else {
+            Toast.makeText(MainActivity.this, "发送失败", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onStopConnect() {
+        Toast.makeText(MainActivity.this, "连接断开", Toast.LENGTH_SHORT).show();
     }
 }

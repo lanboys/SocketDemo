@@ -57,6 +57,13 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
+        <Button
+            android:id="@+id/iv_heart_beat"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginRight="3dp"
+            android:background="@drawable/heart_beat_selector"/>
+
 
         <TextView
             android:layout_width="wrap_content"

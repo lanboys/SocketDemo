@@ -37,7 +37,6 @@ class MessageListAdapter extends BaseRecyclerAdapter<Message> {
 
         public ClientHolder(View itemView) {
             super(itemView);
-
             tv_client_msg = itemView.findViewById(R.id.tv_client_msg);
         }
 
