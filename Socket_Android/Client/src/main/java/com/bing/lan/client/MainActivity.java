@@ -21,6 +21,9 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, SocketClient.SocketListener {
 
+    RecyclerView mRecyclerView;
+    Button mIvHeartBeat;
+    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private Button mBtnReset;
     private Button mBtnConnect;
     private Button mBtnDisconnect;
@@ -30,10 +33,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText mPort;
     private EditText mContent;
     private SocketClient mSocketClient;
-    RecyclerView mRecyclerView;
     private MessageListAdapter mAdapter;
     private List<Message> mMessages = new ArrayList<>();
-    Button mIvHeartBeat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -150,28 +151,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    public void onServerMessage(final String serverMessage) {
+    public void onServerMessage(final Message serverMessage) {
 
-        if (serverMessage.contains("心跳包")) {
+        if (Message.MESSAGE_SERVER != serverMessage.getType()) {
             mIvHeartBeat.setSelected(!mIvHeartBeat.isSelected());
             mSocketClient.sendMsg("我是客户端心跳包: " + format.format(new Date(System.currentTimeMillis())));
         } else {
-            mMessages.add(new Message(serverMessage, Message.MESSAGE_SERVER));
+            mMessages.add(serverMessage);
             mAdapter.notifyDataSetChanged();
             mRecyclerView.smoothScrollToPosition(mMessages.size() - 1);
         }
     }
 
-    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
     @Override
-    public void onSendMessage(boolean isSuccess, String clientMessage) {
+    public void onSendMessage(boolean isSuccess, Message clientMessage) {
         if (isSuccess) {
 
-            if (!clientMessage.contains("心跳包")) {
+            if (Message.MESSAGE_CLIENT != clientMessage.getType()) {
                 Toast.makeText(MainActivity.this, "发送成功", Toast.LENGTH_SHORT).show();
                 mContent.setText("");
-                mMessages.add(new Message(clientMessage + " :我", Message.MESSAGE_CLIENT));
+                mMessages.add(clientMessage);
                 mAdapter.notifyDataSetChanged();
             }
         } else {

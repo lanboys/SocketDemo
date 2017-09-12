@@ -42,7 +42,7 @@ class MessageListAdapter extends BaseRecyclerAdapter<Message> {
 
         @Override
         public void fillData(Message data, int position) {
-            tv_client_msg.setText(data.getMsg());
+            tv_client_msg.setText(data.getMsg() + " :我");
         }
     }
 

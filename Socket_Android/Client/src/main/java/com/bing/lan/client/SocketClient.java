@@ -12,42 +12,31 @@ import java.net.Socket;
 
 public class SocketClient {
 
+    Activity mContext;
+    boolean isConnect = true;
+    Message mClientMsg;
+    boolean isSendMsg = false;
     private Socket mSocket;
     private BufferedWriter mBufferedWriter;
     private BufferedReader mBufferedReader;
-
     private SocketListener mSocketListener;
-    private String mServerMsg;
 
     public SocketClient() {
 
     }
 
-    Activity mContext;
-
     public SocketClient(Activity activity) {
         mContext = activity;
-    }
-
-    interface SocketListener {
-
-        void onStartConnect(boolean isSuccess);
-
-        void onServerMessage(String serverMessage);
-
-        void onSendMessage(boolean isSuccess, String clientMessage);
-
-        void onStopConnect();
-    }
-
-    public void setSocketListener(SocketListener socketListener) {
-        mSocketListener = socketListener;
     }
 
     public static void main(String[] args) throws IOException {
 
         SocketClient socketClient = new SocketClient();
         socketClient.startConnect("192.168.2.186", 9898);
+    }
+
+    public void setSocketListener(SocketListener socketListener) {
+        mSocketListener = socketListener;
     }
 
     public void startConnect(final String host, final int port) {
@@ -74,25 +63,26 @@ public class SocketClient {
                         @Override
                         public void run() {
                             try {
+                                final String[] mServerMsg = new String[1];
 
                                 while (isConnect) {
                                     System.out.println("-----接收线程------");
                                     Thread.sleep(200);
 
                                     //mBufferedReader.readLine() 会阻塞线程 所以再开一条线程等待服务器消息
-                                    if (mSocketListener != null && mBufferedReader != null && (mServerMsg = mBufferedReader.readLine()) != null) {
+                                    if (mSocketListener != null && mBufferedReader != null && (mServerMsg[0] = mBufferedReader.readLine()) != null) {
                                         mContext.runOnUiThread(new Runnable() {
                                             @Override
                                             public void run() {
                                                 //System.out.println("接收的消息: " + mServerMsg);
-                                                mSocketListener.onServerMessage(mServerMsg);
-                                                mServerMsg = null;
+                                                mSocketListener.onServerMessage(new Message(mServerMsg[0], Message.MESSAGE_SERVER));
+                                                mServerMsg[0] = null;
                                             }
                                         });
                                     }
                                 }
                             } catch (Exception e) {
-                                e.printStackTrace();
+                                // e.printStackTrace();
                             }
                         }
                     }).start();
@@ -101,11 +91,11 @@ public class SocketClient {
                         System.out.println("--------------发送线程-----");
                         Thread.sleep(200);
 
-                        if (isSendMsg) {
-                            System.out.println("客户端发送了：" + mClientMsg);
+                        if (mClientMsg != null) {
+                            System.out.println("客户端发送了：" + mClientMsg.getMsg());
 
                             if (mBufferedWriter != null) {
-                                mBufferedWriter.write(mClientMsg + "\n");
+                                mBufferedWriter.write(mClientMsg.getMsg() + "\n");
                                 mBufferedWriter.flush();
 
                                 if (mSocketListener != null) {
@@ -118,6 +108,7 @@ public class SocketClient {
                                     });
                                 }
                                 isSendMsg = false;
+                                mClientMsg = null;
                             }
                         }
 
@@ -146,8 +137,6 @@ public class SocketClient {
             }
         }).start();
     }
-
-    boolean isConnect = true;
 
     public void stopConnect() {
 
@@ -188,11 +177,8 @@ public class SocketClient {
         mSocketListener = null;
         mContext = null;
         isSendMsg = false;
+        mClientMsg = null;
     }
-
-    String mClientMsg = "";
-
-    boolean isSendMsg = false;
 
     public void sendMsg(String msg) {
         if (TextUtils.isEmpty(msg)) {
@@ -206,7 +192,7 @@ public class SocketClient {
             //    clientMsgBuilder.append(clientMsg);
             //}
             //mClientMsg = clientMsgBuilder.toString();
-            mClientMsg = msg;
+            mClientMsg = new Message(msg, Message.MESSAGE_CLIENT);
             isSendMsg = true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -219,5 +205,16 @@ public class SocketClient {
                 });
             }
         }
+    }
+
+    interface SocketListener {
+
+        void onStartConnect(boolean isSuccess);
+
+        void onServerMessage(Message serverMessage);
+
+        void onSendMessage(boolean isSuccess, Message clientMessage);
+
+        void onStopConnect();
     }
 }
