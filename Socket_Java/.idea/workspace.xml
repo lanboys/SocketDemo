@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="467436e0-4bf1-4cce-821c-65f067133182" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Socket_Android/.idea/misc.xml" afterPath="$PROJECT_DIR$/../Socket_Android/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Socket_Android/Client/src/main/java/com/bing/lan/client/MainActivity.java" afterPath="$PROJECT_DIR$/../Socket_Android/Client/src/main/java/com/bing/lan/client/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Socket_Android/Client/src/main/java/com/bing/lan/client/MessageListAdapter.java" afterPath="$PROJECT_DIR$/../Socket_Android/Client/src/main/java/com/bing/lan/client/MessageListAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Socket_Android/Client/src/main/java/com/bing/lan/client/SocketClient.java" afterPath="$PROJECT_DIR$/../Socket_Android/Client/src/main/java/com/bing/lan/client/SocketClient.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SocketServer/src/com/bing/lan/server/SocketServer.java" afterPath="$PROJECT_DIR$/SocketServer/src/com/bing/lan/server/SocketServer.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,8 +31,8 @@
       <file leaf-file-name="SocketServer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SocketServer/src/com/bing/lan/server/SocketServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+            <state relative-caret-position="21">
+              <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -102,54 +102,26 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView">
-        <subPane>
+      <pane id="Scope">
+        <subPane subId="Production">
           <expand>
             <path>
-              <item name="Socket_Java" type="1abcf292:AndroidViewProjectNode" />
-              <item name="MinaServer" type="1039202d:NonAndroidModuleNode" />
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="SocketClient" type="cbb8eebc:String" user="SocketClient" />
             </path>
             <path>
-              <item name="Socket_Java" type="1abcf292:AndroidViewProjectNode" />
-              <item name="MinaServer" type="1039202d:NonAndroidModuleNode" />
-              <item name="java" type="b5c1fe26:NonAndroidSourceTypeNode" />
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="SocketClient" type="cbb8eebc:String" user="SocketClient" />
+              <item name="SocketClient" type="cbb8eebc:String" user="SocketClient" />
             </path>
             <path>
-              <item name="Socket_Java" type="1abcf292:AndroidViewProjectNode" />
-              <item name="SocketClient" type="1039202d:NonAndroidModuleNode" />
-            </path>
-            <path>
-              <item name="Socket_Java" type="1abcf292:AndroidViewProjectNode" />
-              <item name="SocketClient" type="1039202d:NonAndroidModuleNode" />
-              <item name="java" type="b5c1fe26:NonAndroidSourceTypeNode" />
-            </path>
-            <path>
-              <item name="Socket_Java" type="1abcf292:AndroidViewProjectNode" />
-              <item name="SocketClient" type="1039202d:NonAndroidModuleNode" />
-              <item name="java" type="b5c1fe26:NonAndroidSourceTypeNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Socket_Java" type="1abcf292:AndroidViewProjectNode" />
-              <item name="SocketServer" type="1039202d:NonAndroidModuleNode" />
-            </path>
-            <path>
-              <item name="Socket_Java" type="1abcf292:AndroidViewProjectNode" />
-              <item name="SocketServer" type="1039202d:NonAndroidModuleNode" />
-              <item name="java" type="b5c1fe26:NonAndroidSourceTypeNode" />
-            </path>
-            <path>
-              <item name="Socket_Java" type="1abcf292:AndroidViewProjectNode" />
-              <item name="SocketServer" type="1039202d:NonAndroidModuleNode" />
-              <item name="java" type="b5c1fe26:NonAndroidSourceTypeNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="SocketServer" type="cbb8eebc:String" user="SocketServer" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -197,21 +169,49 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope">
-        <subPane subId="Production">
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView">
+        <subPane>
           <expand>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="SocketClient" type="cbb8eebc:String" user="SocketClient" />
+              <item name="Socket_Java" type="1abcf292:AndroidViewProjectNode" />
+              <item name="MinaServer" type="1039202d:NonAndroidModuleNode" />
             </path>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="SocketClient" type="cbb8eebc:String" user="SocketClient" />
-              <item name="SocketClient" type="cbb8eebc:String" user="SocketClient" />
+              <item name="Socket_Java" type="1abcf292:AndroidViewProjectNode" />
+              <item name="MinaServer" type="1039202d:NonAndroidModuleNode" />
+              <item name="java" type="b5c1fe26:NonAndroidSourceTypeNode" />
             </path>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="SocketServer" type="cbb8eebc:String" user="SocketServer" />
+              <item name="Socket_Java" type="1abcf292:AndroidViewProjectNode" />
+              <item name="SocketClient" type="1039202d:NonAndroidModuleNode" />
+            </path>
+            <path>
+              <item name="Socket_Java" type="1abcf292:AndroidViewProjectNode" />
+              <item name="SocketClient" type="1039202d:NonAndroidModuleNode" />
+              <item name="java" type="b5c1fe26:NonAndroidSourceTypeNode" />
+            </path>
+            <path>
+              <item name="Socket_Java" type="1abcf292:AndroidViewProjectNode" />
+              <item name="SocketClient" type="1039202d:NonAndroidModuleNode" />
+              <item name="java" type="b5c1fe26:NonAndroidSourceTypeNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Socket_Java" type="1abcf292:AndroidViewProjectNode" />
+              <item name="SocketServer" type="1039202d:NonAndroidModuleNode" />
+            </path>
+            <path>
+              <item name="Socket_Java" type="1abcf292:AndroidViewProjectNode" />
+              <item name="SocketServer" type="1039202d:NonAndroidModuleNode" />
+              <item name="java" type="b5c1fe26:NonAndroidSourceTypeNode" />
+            </path>
+            <path>
+              <item name="Socket_Java" type="1abcf292:AndroidViewProjectNode" />
+              <item name="SocketServer" type="1039202d:NonAndroidModuleNode" />
+              <item name="java" type="b5c1fe26:NonAndroidSourceTypeNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -345,11 +345,12 @@
       <workItem from="1505142322644" duration="226000" />
       <workItem from="1505177905140" duration="4257000" />
       <workItem from="1505182614558" duration="19189000" />
+      <workItem from="1505264720137" duration="6886000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32701000" />
+    <option name="totallyTimeSpent" value="39587000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -361,8 +362,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1038" extended-state="6" />
-    <editor active="true" />
+    <frame x="-1448" y="-8" width="1456" height="876" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -372,46 +372,25 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20139635" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.53932583" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33038348" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10176991" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1590909" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20622286" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2496382" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.10419682" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20139635" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2496382" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.10419682" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958803" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33038348" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5412979" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15629523" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -429,6 +408,14 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/SocketServer/src/com/bing/lan/server/SocketServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1596">
+          <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SocketServer/src/com/bing/lan/server/SocketServer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
@@ -645,10 +632,98 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$PROJECT_DIR$/../../../jdk1.8.0_102/src.zip!/java/io/BufferedReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="355" column="43" lean-forward="false" selection-start-line="355" selection-start-column="41" selection-end-line="355" selection-end-column="43" />
+          <folding>
+            <marker date="1466573866000" expanded="false" signature="0:215" ph="/.../" />
+            <marker date="1466573866000" expanded="false" signature="243:435" ph="..." />
+            <marker date="1466573866000" expanded="true" signature="437:1687" ph="/**...*/" />
+            <marker date="1466573866000" expanded="true" signature="2025:2077" ph="/**...*/" />
+            <marker date="1466573866000" expanded="true" signature="2119:2163" ph="/**...*/" />
+            <marker date="1466573866000" expanded="true" signature="2320:2582" ph="/**...*/" />
+            <marker date="1466573866000" expanded="true" signature="2628:2823" ph="{...}" />
+            <marker date="1466573866000" expanded="true" signature="2829:2973" ph="/**...*/" />
+            <marker date="1466573866000" expanded="false" signature="3010:3021" ph=" { " />
+            <marker date="1466573866000" expanded="false" signature="3053:3059" ph=" }" />
+            <marker date="1466573866000" expanded="true" signature="3065:3127" ph="/**...*/" />
+            <marker date="1466573866000" expanded="true" signature="3177:3260" ph="{...}" />
+            <marker date="1466573866000" expanded="true" signature="3266:3353" ph="/**...*/" />
+            <marker date="1466573866000" expanded="true" signature="3397:4680" ph="{...}" />
+            <marker date="1466573866000" expanded="true" signature="4686:4967" ph="/**...*/" />
+            <marker date="1466573866000" expanded="true" signature="5009:5549" ph="{...}" />
+            <marker date="1466573866000" expanded="true" signature="5555:5674" ph="/**...*/" />
+            <marker date="1466573866000" expanded="true" signature="5747:6756" ph="{...}" />
+            <marker date="1466573866000" expanded="true" signature="6762:8960" ph="/**...*/" />
+            <marker date="1466573866000" expanded="true" signature="9031:9644" ph="{...}" />
+            <marker date="1466573866000" expanded="true" signature="9650:10266" ph="/**...*/" />
+            <marker date="1466573866000" expanded="true" signature="10324:12166" ph="{...}" />
+            <marker date="1466573866000" expanded="true" signature="12172:12703" ph="/**...*/" />
+            <marker date="1466573866000" expanded="true" signature="12752:12791" ph="{...}" />
+            <marker date="1466573866000" expanded="true" signature="12797:13096" ph="/**...*/" />
+            <marker date="1466573866000" expanded="true" signature="13145:14040" ph="{...}" />
+            <marker date="1466573866000" expanded="true" signature="14046:14301" ph="/**...*/" />
+            <marker date="1466573866000" expanded="true" signature="14348:15125" ph="{...}" />
+            <marker date="1466573866000" expanded="true" signature="15131:15221" ph="/**...*/" />
+            <marker date="1466573866000" expanded="false" signature="15256:15267" ph=" { " />
+            <marker date="1466573866000" expanded="false" signature="15279:15285" ph=" }" />
+            <marker date="1466573866000" expanded="true" signature="15291:16190" ph="/**...*/" />
+            <marker date="1466573866000" expanded="true" signature="16251:16560" ph="{...}" />
+            <marker date="1466573866000" expanded="true" signature="16566:16771" ph="/**...*/" />
+            <marker date="1466573866000" expanded="true" signature="16815:17173" ph="{...}" />
+            <marker date="1466573866000" expanded="true" signature="17218:17455" ph="{...}" />
+            <marker date="1466573866000" expanded="true" signature="17461:18823" ph="/**...*/" />
+            <marker date="1466573866000" expanded="true" signature="18858:19897" ph="{...}" />
+            <marker date="1466573866000" expanded="true" signature="18915:19743" ph="{...}" />
+            <marker date="1466573866000" expanded="true" signature="19013:19395" ph="{...}" />
+            <marker date="1466573866000" expanded="true" signature="19452:19733" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../../jdk1.8.0_102/src.zip!/java/io/Reader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="161" column="42" lean-forward="false" selection-start-line="161" selection-start-column="42" selection-end-line="161" selection-end-column="42" />
+          <folding>
+            <marker date="1466573866000" expanded="false" signature="0:215" ph="/.../" />
+            <marker date="1466573866000" expanded="true" signature="236:823" ph="/**...*/" />
+            <marker date="1466573866000" expanded="true" signature="892:1215" ph="/**...*/" />
+            <marker date="1466573866000" expanded="true" signature="1248:1374" ph="/**...*/" />
+            <marker date="1466573866000" expanded="false" signature="1397:1408" ph=" { " />
+            <marker date="1466573866000" expanded="false" signature="1425:1431" ph=" }" />
+            <marker date="1466573866000" expanded="true" signature="1437:1619" ph="/**...*/" />
+            <marker date="1466573866000" expanded="true" signature="1654:1771" ph="{...}" />
+            <marker date="1466573866000" expanded="true" signature="1777:2438" ph="/**...*/" />
+            <marker date="1466573866000" expanded="true" signature="2506:2697" ph="{...}" />
+            <marker date="1466573866000" expanded="true" signature="2703:3245" ph="/**...*/" />
+            <marker date="1466573866000" expanded="true" signature="3287:3423" ph="{...}" />
+            <marker date="1466573866000" expanded="true" signature="3429:3860" ph="/**...*/" />
+            <marker date="1466573866000" expanded="true" signature="3913:3963" ph="{...}" />
+            <marker date="1466573866000" expanded="true" signature="3969:4527" ph="/**...*/" />
+            <marker date="1466573866000" expanded="true" signature="4613:4644" ph="/**...*/" />
+            <marker date="1466573866000" expanded="true" signature="4705:4745" ph="/**...*/" />
+            <marker date="1466573866000" expanded="true" signature="4789:5214" ph="/**...*/" />
+            <marker date="1466573866000" expanded="true" signature="5263:5810" ph="{...}" />
+            <marker date="1466573866000" expanded="true" signature="5816:6135" ph="/**...*/" />
+            <marker date="1466573866000" expanded="true" signature="6182:6211" ph="{...}" />
+            <marker date="1466573866000" expanded="true" signature="6217:6478" ph="/**...*/" />
+            <marker date="1466573866000" expanded="false" signature="6513:6524" ph=" { " />
+            <marker date="1466573866000" expanded="false" signature="6537:6543" ph=" }" />
+            <marker date="1466573866000" expanded="true" signature="6549:7205" ph="/**...*/" />
+            <marker date="1466573866000" expanded="true" signature="7266:7328" ph="{...}" />
+            <marker date="1466573866000" expanded="true" signature="7334:8047" ph="/**...*/" />
+            <marker date="1466573866000" expanded="true" signature="8091:8154" ph="{...}" />
+            <marker date="1466573866000" expanded="true" signature="8160:8508" ph="/**...*/" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SocketServer/src/com/bing/lan/server/SocketServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+        <state relative-caret-position="21">
+          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
           <folding />
         </state>
       </provider>

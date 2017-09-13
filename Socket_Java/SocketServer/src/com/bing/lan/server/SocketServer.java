@@ -48,9 +48,12 @@ public class SocketServer {
                             try {
 
                                 SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                                Date mDate = new Date();
+
                                 while (true) {
                                     Thread.sleep(1000);
-                                    bufferedWriter.write("我是服务器心跳包: " + format.format(new Date(System.currentTimeMillis())) + "\n");
+                                    mDate.setTime(System.currentTimeMillis());
+                                    bufferedWriter.write("我是服务器心跳包: " + format.format(mDate) + "\n");
                                     bufferedWriter.flush();
                                 }
                             } catch (Exception e) {
@@ -59,11 +62,38 @@ public class SocketServer {
                         }
                     }).start();
 
+                    //int read = bufferedReader.read();
+
+                    //char[] cbuf = new char[8];
+                    //
+                    //while (true) {
+                    //    System.out.println("---------------------");
+                    //
+                    //    StringBuffer stringBuffer = new StringBuffer();
+                    //    int read = 0;
+                    //    while (-1 != bufferedReader.read(cbuf)) {
+                    //        stringBuffer.append(cbuf);
+                    //        System.out.println("客户端: " + Arrays.toString(cbuf));
+                    //    }
+                    //    System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxx");
+                    //
+                    //    String s = stringBuffer.toString();
+                    //    System.out.println("客户端2222: " + s);
+                    //    if (!s.contains("心跳包")) {
+                    //        System.out.println("客户端 " + socket.hashCode() + " 发来了消息：" + s);
+                    //        bufferedWriter.write("小娜: " + s + "\n");
+                    //        bufferedWriter.flush();
+                    //    }
+                    //}
+
                     String clientMsg;
                     while ((clientMsg = bufferedReader.readLine()) != null) {
-                        System.out.println("客户端 " + socket.hashCode() + " 发来了消息：" + clientMsg);
-                        bufferedWriter.write("小娜: "+clientMsg + "\n");
-                        bufferedWriter.flush();
+
+                        if (!clientMsg.contains("心跳包")) {
+                            System.out.println("客户端 " + socket.hashCode() + " 发来了消息：" + clientMsg);
+                            bufferedWriter.write("小娜: " + clientMsg + "\n");
+                            bufferedWriter.flush();
+                        }
                     }
 
                     System.out.println("客户端: " + socket.hashCode() + " 断开连接了");

@@ -8,6 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,11 +21,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, SocketClient.SocketListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, SocketClient.SocketListener, CompoundButton.OnCheckedChangeListener {
 
-    RecyclerView mRecyclerView;
-    Button mIvHeartBeat;
-    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    private RecyclerView mRecyclerView;
+    private Button mIvHeartBeat;
+    private SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    private Date mDate = new Date();
     private Button mBtnReset;
     private Button mBtnConnect;
     private Button mBtnDisconnect;
@@ -35,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private SocketClient mSocketClient;
     private MessageListAdapter mAdapter;
     private List<Message> mMessages = new ArrayList<>();
+    private CheckBox mCbHeartBeat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,11 +59,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mIp = (EditText) findViewById(R.id.ip);
         mPort = (EditText) findViewById(R.id.port);
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        mCbHeartBeat = (CheckBox) findViewById(R.id.cb_heart_beat);
+        mCbHeartBeat.setChecked(true);
 
         mBtnConnect.setOnClickListener(this);
         mBtnSend.setOnClickListener(this);
         mBtnReset.setOnClickListener(this);
         mBtnDisconnect.setOnClickListener(this);
+        mCbHeartBeat.setOnCheckedChangeListener(this);
 
         initRecyclerView();
     }
@@ -125,6 +132,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mSocketClient.setSocketListener(MainActivity.this);
                 mSocketClient.startConnect(mIp.getText().toString().trim(),
                         Integer.valueOf(mPort.getText().toString().trim()));
+                mSocketClient.setHeartBeat(true);
 
                 break;
             case R.id.send:
@@ -152,34 +160,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onServerMessage(final Message serverMessage) {
-
-        if (Message.MESSAGE_SERVER != serverMessage.getType()) {
-            mIvHeartBeat.setSelected(!mIvHeartBeat.isSelected());
-            mSocketClient.sendMsg("我是客户端心跳包: " + format.format(new Date(System.currentTimeMillis())));
-        } else {
-            mMessages.add(serverMessage);
-            mAdapter.notifyDataSetChanged();
-            mRecyclerView.smoothScrollToPosition(mMessages.size() - 1);
-        }
+        mMessages.add(serverMessage);
+        mAdapter.notifyDataSetChanged();
+        mRecyclerView.smoothScrollToPosition(mMessages.size() - 1);
     }
 
     @Override
     public void onSendMessage(boolean isSuccess, Message clientMessage) {
         if (isSuccess) {
-
-            if (Message.MESSAGE_CLIENT != clientMessage.getType()) {
-                Toast.makeText(MainActivity.this, "发送成功", Toast.LENGTH_SHORT).show();
-                mContent.setText("");
-                mMessages.add(clientMessage);
-                mAdapter.notifyDataSetChanged();
-            }
+            Toast.makeText(MainActivity.this, "发送成功", Toast.LENGTH_SHORT).show();
+            mContent.setText("");
+            mMessages.add(clientMessage);
+            mAdapter.notifyDataSetChanged();
         } else {
             Toast.makeText(MainActivity.this, "发送失败", Toast.LENGTH_SHORT).show();
         }
     }
 
     @Override
+    public void onServerHeartBeat() {
+        mIvHeartBeat.setSelected(!mIvHeartBeat.isSelected());
+    }
+
+    @Override
     public void onStopConnect() {
         Toast.makeText(MainActivity.this, "连接断开", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        if (mSocketClient != null) {
+            mSocketClient.setHeartBeat(isChecked);
+        }
     }
 }
