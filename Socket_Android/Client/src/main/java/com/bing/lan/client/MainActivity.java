@@ -147,6 +147,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 mSocketClient.sendMsg(trim);
                 break;
+            default:
+                break;
         }
     }
 

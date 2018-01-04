@@ -45,7 +45,7 @@ public class SocketClient {
     public static void main(String[] args) throws IOException {
 
         SocketClient socketClient = new SocketClient();
-        socketClient.startConnect("192.168.2.186", 9898);
+        socketClient.startConnect("192.168.1.12", 9898);
     }
 
     public void setSocketListener(SocketListener socketListener) {
