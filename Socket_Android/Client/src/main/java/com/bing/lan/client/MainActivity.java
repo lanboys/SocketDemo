@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.reset:
                 mTvStatus.setText("未连接");
-                mIp.setText("192.168.2.186");
+                mIp.setText("192.168.129.40");
                 mPort.setText("9898");
                 if (mSocketClient != null) {
                     mSocketClient.stopConnect();

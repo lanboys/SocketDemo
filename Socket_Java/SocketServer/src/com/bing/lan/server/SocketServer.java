@@ -15,7 +15,7 @@ public class SocketServer {
     public static void main(String[] args) {
 
         SocketServer socketServer = new SocketServer();
-        socketServer.startServer();
+        socketServer.startServer1();
     }
 
     private void startServer() {
@@ -27,7 +27,34 @@ public class SocketServer {
                 handleSocket(accept);
             }
         } catch (Exception e) {
-            System.out.println("Server end");
+            System.out.println("Server end :"+e);
+        }
+    }
+
+    private void startServer1() {
+        try {
+            ServerSocket serverSocket = new ServerSocket(9898);
+            for (int i = 0; i < 4; i++) {
+                int finalI = i;
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        System.out.println("Server " + finalI + " start");
+                        Socket accept;
+                        while (true) {
+                            try {
+                                accept = serverSocket.accept();
+                                handleSocket(accept);
+                                System.out.println("Server " + finalI + " accept");
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                }).start();
+            }
+        } catch (Exception e) {
+            System.out.println("Server end :"+e);
         }
     }
 

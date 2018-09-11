@@ -3,8 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Client/Client.iml" filepath="$PROJECT_DIR$/Client/Client.iml" />
+      <module fileurl="file://E:\workspace\Demo_workspace\IDEA\SocketDemo\Socket_Android\Client\Client.iml" filepath="E:\workspace\Demo_workspace\IDEA\SocketDemo\Socket_Android\Client\Client.iml" />
       <module fileurl="file://$PROJECT_DIR$/Server/Server.iml" filepath="$PROJECT_DIR$/Server/Server.iml" />
+      <module fileurl="file://E:\workspace\Demo_workspace\IDEA\SocketDemo\Socket_Android\Server\Server.iml" filepath="E:\workspace\Demo_workspace\IDEA\SocketDemo\Socket_Android\Server\Server.iml" />
       <module fileurl="file://$PROJECT_DIR$/Socket_Android.iml" filepath="$PROJECT_DIR$/Socket_Android.iml" />
+      <module fileurl="file://E:\workspace\Demo_workspace\IDEA\SocketDemo\Socket_Android\Socket_Android.iml" filepath="E:\workspace\Demo_workspace\IDEA\SocketDemo\Socket_Android\Socket_Android.iml" />
     </modules>
   </component>
 </project>

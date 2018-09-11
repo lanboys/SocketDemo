@@ -4,10 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MinaServer/MinaServer.iml" filepath="$PROJECT_DIR$/MinaServer/MinaServer.iml" />
       <module fileurl="file://$PROJECT_DIR$/SocketClient/SocketClient.iml" filepath="$PROJECT_DIR$/SocketClient/SocketClient.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Socket_Guolin/SocketClient/SocketClient.iml" filepath="$PROJECT_DIR$/Socket_Guolin/SocketClient/SocketClient.iml" />
       <module fileurl="file://$PROJECT_DIR$/SocketServer/SocketServer.iml" filepath="$PROJECT_DIR$/SocketServer/SocketServer.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Socket_Guolin/SocketServer/SocketServer.iml" filepath="$PROJECT_DIR$/Socket_Guolin/SocketServer/SocketServer.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Socket_Guolin/SocketClient/Socket_Guolin.iml" filepath="$PROJECT_DIR$/Socket_Guolin/SocketClient/Socket_Guolin.iml" />
       <module fileurl="file://$PROJECT_DIR$/Socket_Java.iml" filepath="$PROJECT_DIR$/Socket_Java.iml" />
     </modules>
   </component>

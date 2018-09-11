@@ -83,7 +83,9 @@ public class SocketClient {
                                     Thread.sleep(HEARTBEAT_INTERVAL_TIME);
 
                                     //mBufferedReader.readLine() 会阻塞线程 所以再开一条线程等待服务器消息
-                                    if (mSocketListener != null && mBufferedReader != null && (mServerMsg[0] = mBufferedReader.readLine()) != null) {
+                                    if (mSocketListener != null && mBufferedReader != null &&
+                                            (mServerMsg[0] = mBufferedReader.readLine()) != null) {
+
                                         mContext.runOnUiThread(new Runnable() {
                                             @Override
                                             public void run() {
