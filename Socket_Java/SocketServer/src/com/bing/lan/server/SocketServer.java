@@ -51,13 +51,13 @@ public class SocketServer {
                                 Date mDate = new Date();
 
                                 while (true) {
-                                    Thread.sleep(1000);
+                                    Thread.sleep(3000);
                                     mDate.setTime(System.currentTimeMillis());
                                     bufferedWriter.write("我是服务器心跳包: " + format.format(mDate) + "\n");
                                     bufferedWriter.flush();
                                 }
                             } catch (Exception e) {
-                                //e.printStackTrace();
+                                e.printStackTrace();
                             }
                         }
                     }).start();
@@ -98,7 +98,7 @@ public class SocketServer {
 
                     System.out.println("客户端: " + socket.hashCode() + " 断开连接了");
                 } catch (IOException e) {
-                    //e.printStackTrace();
+                    e.printStackTrace();
                 }
             }
         }).start();
